@@ -1,0 +1,360 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff9e6;
+    font-family: sans-serif;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    padding: 10px 20px;
+    background-color: #005f99;
+    color: white;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-item {
+    color: white;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+
+.menu-item:hover {
+    background-color: #ff8800;
+}
+
+.img-button {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.to-selected-icon {
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.form p {
+    margin-bottom: 20px;
+}
+
+.form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form button:hover {
+    background-color: #e60000;
+}
+
+.footers {
+    padding: 6rem;
+    background: #005f99;
+    color: #fff;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+}
+
+.headers {
+    text-align: center;
+    color: white;
+}
+
+.content-area {
+    background-color: #ffffff;
+    min-height: calc(100vh - 200px);
+    padding: 20px;
+}
+
+
+.product-item__price {
+    color: #ff6600;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.form1 button {
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+   margin-top: 5px;
+}
+
+.form1 button:hover {
+    background-color: #e60000;
+}
+
+
+.product-item {
+    
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 420px; /* ← Ограничиваем высоту */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    min-height: 100vh; /* полная высота экрана */
+    display: flex;
+    flex-direction: column;
+}
+
+.content-area {
+    flex: 1; /* занимает всё доступное пространство между header и footer */
+    
+}
+
+.footers {
+    background-color: #005f99;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: auto; /* <-- автоматически уходит вниз */
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-item {
+    color: white;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+
+.menu-item:hover {
+    background-color: #ff8800;
+}
+
+.img-button {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.to-selected-icon {
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.form p {
+    margin-bottom: 20px;
+}
+
+.form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form button:hover {
+    background-color: #e60000;
+}
+
+.form1 button {
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 5px;
+}
+
+.form1 button:hover {
+    background-color: #e60000;
+}
+
+.product-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    margin: 10px;
+}
+
+.product-item__price {
+    color: #ff6600;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.product-detail {
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    margin-top: 150px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-left: 500px;
+    margin-bottom: 10px;
+    
+}
+
+.product-detail > div {
+    margin-bottom: 10px;
+}
+
+.main-products-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 80vh; /* Достаточная высота, чтобы вытолкнуть футер вниз */
+}
+
+/* Секция товаров */
+.products {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Пагинация, прижатая к низу */
+.pagination {
+    margin-top: auto;
+    padding-bottom: 40px; /* отступ от футера */
+    text-align: center;
+}
+
+
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-item1 {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 600px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.register {
+    max-width: 400px;       /* Максимальная ширина формы */
+    margin: 50px auto;      /* Центрирование блока и отступ сверху */
+    padding: 20px 0;        /* Отступы сверху и снизу, без рамки */
+    text-align: center;     /* Выравнивание текста по центру */
+  }
+  
+ .register p {
+    margin-bottom: 10px;
+ }
+ 
+ 
+
+  .register .custom-button {
+    padding: 12px;
+    background-color: #005f99;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register .custom-button:hover {
+    background-color: #004c7a;
+  }
+
+  .login {
+    max-width: 400px;       /* Максимальная ширина формы */
+    margin: 50px auto;      /* Центрирование блока и отступ сверху */
+    padding: 20px 0;        /* Отступы сверху и снизу, без рамки */
+    text-align: center;
+  }
+
+  .login .custom-button {
+    padding: 12px;
+    background-color: #005f99;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+
+
+
+

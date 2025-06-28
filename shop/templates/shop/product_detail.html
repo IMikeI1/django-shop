@@ -1,0 +1,58 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="product-detail">
+  <div>
+    ID товара - {{ product.pk }}
+  </div>
+  <div>
+    Наименование - {{ product.name }}
+  </div>
+  <div>
+    Категория - {{ product.category }}
+  </div>
+
+  <div>
+    {% if product.image %}
+      <img src="{{ product.image.url }}" width="200" height="auto">
+    {% else %}
+      <img src="{% static 'img/no_image.jpg' %}" width="200" height="auto">
+    {% endif %}
+  </div>
+
+  <div>
+    Описание - {{ product.description }}
+  </div>
+  <div>
+    Стоимость - {{ product.price }} руб.
+  </div>
+
+  <div>
+    {% if product.available %}
+      <span>Доступен к продаже</span>
+    {% else %}
+      <span>Не доступен к продаже</span>
+    {% endif %}
+  </div>
+
+  <div>
+    Дата создания позиции - {{ product.created_at }}
+  </div>
+
+  <div class="form1">
+    <form action="{% url 'cart_add' slug=product.slug %}" method="post">
+      {% csrf_token %}
+      <button type="submit">В КОРЗИНУ</button>
+    </form>
+  </div>
+
+  <div>
+    <form action="{% url 'cart_add' slug=product.slug %}" method="get">
+      <button class="img-button" type="submit">
+        <img class="to-selected-icon" src="{% static 'img/heart.png' %}">
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock content %}

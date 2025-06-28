@@ -1,0 +1,12 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+<div class="login">
+<h3>Пожалуйста, войдите на сайт</h3>
+<form method="post">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button type="submit" class="custom-button">Войти</button>
+</form>
+</div>
+{% endblock content %}

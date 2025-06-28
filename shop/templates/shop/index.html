@@ -1,0 +1,77 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="main-products-wrapper">
+    <div class="categories">
+        <ul>
+            {% for category in categories %}
+            <li>
+                <b><a href="{% url 'shop:index_category' category.slug %}">{{ category.name }}</a></b>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="products">
+        {% for product in products %}
+        <div class="product-item">
+            <div class="product-item__name">
+                <a href="{% url 'shop:product_detail' slug=product.slug %}">{{ product.name }}</a>
+            </div>
+            <div class="product-item__price">{{ product.price }}</div>
+            <div class="product-item__image">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" width="200" height="auto">
+                {% else %}
+                    <img src="{% static 'img/no_image.jpg' %}" width="200" height="auto">
+                {% endif %}
+            </div>
+            <div class="form1">
+            <form action="{% url 'shop:product_detail' slug=product.slug %}" method="get">
+                <button type="submit">ПОДРОБНЕЕ</button>
+            </form>
+            </div>
+            <div class="form1">
+            <form action="{% url 'cart_add' slug=product.slug %}" method="post">
+                {% csrf_token %}
+                <button type="submit">В КОРЗИНУ</button>
+            </form>
+            </div>
+            <div>
+            <form action="#" method="get">
+                <button class="img-button" type="submit"><img class="to-selected-icon" src="{% static 'img/Heart.png' %}"></button>
+            </form>
+    </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class= "pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; Первая</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Назад</a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Вперёд</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Последняя &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+
+{% comment %} <footer>
+    <div class="footers">
+        <p>Магазин электронники</p>
+        <p>Все права защищены</p>
+        <p>2025</p>
+    </div>
+</footer> {% endcomment %}
+
+
+{% endblock content %}

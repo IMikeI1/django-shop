@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Магазин электроники</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="wrapper"> <!-- ОБЁРТКА для flex-контейнера -->
+
+        <header>
+            <div class="nav-menu">
+                {% comment %} <div class="menu-item"><a href="{% url 'shop:index' %}">Главная</a></div> {% endcomment %}
+                <div class="menu-item"><a href="{% url 'cart_detail' %}">Корзина</a></div>
+                <div class="menu-item"><a href="">Заказы</a></div>
+                <div><a href="{% url 'shop:index' %}">Главная</a></div>
+                    {% if not user.is_authenticated %}
+                        <div><a href="{% url 'users:login' %}">Войти</a></div>
+                        <div><a href="{% url 'users:register' %}">Зарегистрироваться</a></div>
+                    {% else %}
+                        <div><a href="{% url 'users:profile' pk=user.pk %}">{{user.username}}</a></div>
+                        <div><a href="{% url 'users:logout' %}">Выход</a></div>
+                        {% endif %}
+                <div class="menu-item"><a href="">Личный кабинет</a></div>
+            </div>
+        </header>
+        <div class="messages-container">
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li class="message {{ message.tags }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        
+
+
+
+        <main class="content-area">
+            {% block content %}
+            {% endblock content %}
+        </main>
+
+        <footer class="footers">
+            <p>Магазин электроники</p>
+            <p>Все права защищены</p>
+            <p>2025</p>
+        </footer>
+
+    </div> <!-- /wrapper -->
+</body>
+</html>
